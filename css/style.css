@@ -165,12 +165,16 @@ a:hover { color: #036; }
 /**
  * Primary styles
  *
- * Author: 
+ * Author: Riley Davis
  */
 
+body, html {
+	background: #999;
+	font: normal 1em Helvetica, Arial, Verdana, sans-serif;
+	color: white;
+}
 
-
-
+canvas { border: 1px solid white; }
 
 
 
