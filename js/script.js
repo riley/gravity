@@ -30,23 +30,24 @@ var circle = function(spec, my) {
 var canvas = document.getElementById('circles');
 var ctx = canvas.getContext('2d');
 
-var b;
-
-for (var i = 0; i < 5; i++) {
-	b = circle({
-		radius: Math.random() * 50,
-		canvas: canvas,
-		x: Math.random() * 300,
-		y: Math.random() * 300
-	});
-	b.draw();
+function deg2Rad(deg) {
+	return deg * Math.PI / 180;
 }
 
+ctx.beginPath();
+for (var i = 0; i <= 6; i++) {
+	var radius = 40;
+	var angle = i * (360/6);
+	var thisX = Math.cos(deg2Rad(angle))*radius+150;
+	var thisY = Math.sin(deg2Rad(angle))*radius+150;
+	console.log(angle, thisX, thisY);
+	ctx.lineTo(thisX, thisY);
+}
+ctx.closePath();
+ctx.stroke();
 
-var ball = circle({ 
-				radius: 10,
-				canvas: canvas,
-				x: 50,
-				y: 50 });
-				
-ball.draw();
+ctx.beginPath();
+ctx.fillStyle = '#ff0000';
+ctx.moveTo(150, 150);
+ctx.arc(150, 150, 3, 0, Math.PI*2);
+ctx.fill();
